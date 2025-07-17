@@ -24,7 +24,7 @@ const Table: React.FC<TableProps> = ({ position, guests, qrName }) => {
           </div>
         ))}
       </div>
-      <div className={`table-label ${shouldGrayOut ? 'grayed-out' : ''}`}>
+      <div className={`table-label ${shouldGrayOut ? 'grayed-out' : 'active'}`}>
         {position.replace('-', ' ')}
       </div>
     </div>
