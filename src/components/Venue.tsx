@@ -18,6 +18,7 @@ const Venue = () => {
 
   const query = useQuery();
   const qrName = query.get('qrName') || "";
+  const showQr = (query.get('showQr') || "").toLowerCase() === 'true';
 
   return (
     <div className="venue-container">
@@ -35,12 +36,12 @@ const Venue = () => {
         <div className="tables-column-container">
           <div className="tables-row-container">
             {Object.entries(tablesTop).map(([position, guests]) => (
-              <Table key={position} position={position} guests={guests} qrName={qrName} />
+              <Table key={position} position={position} guests={guests} qrName={qrName} showQr={showQr} />
             ))}
           </div>
           <div className="tables-row-container">
             {Object.entries(tablesBottom).map(([position, guests]) => (
-              <Table key={position} position={position} guests={guests} qrName={qrName} />
+              <Table key={position} position={position} guests={guests} qrName={qrName} showQr={showQr} />
             ))}
           </div>
         </div>

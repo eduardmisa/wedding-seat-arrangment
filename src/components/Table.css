@@ -75,9 +75,57 @@
 }
 
 .guest.highlighted {
-  z-index: 100;
   color: #fff;
   background-color: #d4af37;
   font-weight: bold;
   box-shadow: 0 0 8px rgba(212, 175, 55, 0.8);
+}
+
+.qr-popup {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 999999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  margin-bottom: 10px;
+}
+
+.guest:hover .qr-popup {
+  opacity: 1;
+  visibility: visible;
+}
+
+.qr-link {
+  margin-top: 5px;
+  font-size: 10px;
+  word-break: break-all;
+  max-width: 100px;
+  text-align: center;
+}
+
+.qr-download {
+  margin-top: 8px;
+  padding: 4px 8px;
+  background-color: #d4af37;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.qr-download:hover {
+  background-color: #c19b2e;
+}
+
+.qr-download:active {
+  background-color: #a88726;
 }
