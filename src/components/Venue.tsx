@@ -5,7 +5,7 @@ import { useLocation } from 'react-router-dom';
 const Venue = () => {
   const tablesTop = {
     'Table-1': ['Sennen', 'Cherry', 'CJ', 'Jojie', 'Chona'],
-    'Table-2': ['Ally', 'Steph', 'Yasser', 'Anna', 'Chuck', 'Bert']
+    'Table-2': ['Ally', 'Bert', 'Yasser', 'Anna', 'Chuck', 'Steph']
   };
   const tablesBottom = {
     'Table-3': ['Vai', 'Jamie', 'Kernce', 'Guizelle', 'Raffy'],
