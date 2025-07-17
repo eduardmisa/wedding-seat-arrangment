@@ -3,9 +3,11 @@ import './Venue.css';
 import { useLocation } from 'react-router-dom';
 
 const Venue = () => {
-  const tables = {
+  const tablesTop = {
     'Table-1': ['Sennen', 'Cherry', 'CJ', 'Jojie', 'Chona'],
-    'Table-2': ['Ally', 'Steph', 'Yasser', 'Anna', 'Chuck', 'Bert'],
+    'Table-2': ['Ally', 'Steph', 'Yasser', 'Anna', 'Chuck', 'Bert']
+  };
+  const tablesBottom = {
     'Table-3': ['Vai', 'Jamie', 'Kernce', 'Guizelle', 'Raffy'],
     'Table-4': ['Xinrong', 'Derrick', 'Sivam', 'Archie']
   };
@@ -27,15 +29,26 @@ const Venue = () => {
           </div>
         </div>
 
-        <span className="seating-note" >Seat ordering within the table can be re-arranged.</span>
+        <br />
 
         {/* Tables */}
-        {Object.entries(tables).map(([position, guests]) => (
-          <Table key={position} position={position} guests={guests} qrName={qrName} />
-        ))}
+        <div className="tables-column-container">
+          <div className="tables-row-container">
+            {Object.entries(tablesTop).map(([position, guests]) => (
+              <Table key={position} position={position} guests={guests} qrName={qrName} />
+            ))}
+          </div>
+          <div className="tables-row-container">
+            {Object.entries(tablesBottom).map(([position, guests]) => (
+              <Table key={position} position={position} guests={guests} qrName={qrName} />
+            ))}
+          </div>
+        </div>
 
         {/* Entrance */}
-        <div className="entrance">Entrance</div>
+        <div className="catering">Catering</div>
+
+        <span className="seating-note" >Seat ordering within the table can be re-arranged.</span>
       </div>
     </div>
   );

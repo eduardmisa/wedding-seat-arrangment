@@ -4,8 +4,14 @@
 }
 
 .app h1 {
+  display: block;
   font-family: 'Georgia', serif;
   font-size: 1.7rem;
   color: #d4af37;
   width: 100%;
+  margin: 0;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  background-color: #333;
+  padding-right: 6px;
 }
