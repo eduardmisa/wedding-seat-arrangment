@@ -45,7 +45,7 @@ const Venue = () => {
           </div>
         </div>
 
-        <span className="seating-note" >Seat ordering within the table can be re-arranged.</span>
+        <span className="seating-note">Seat order within each table can be rearranged.</span>
       </div>
     </div>
   );
