@@ -2,16 +2,16 @@ import Table from './Table';
 import './Venue.css';
 import { useLocation } from 'react-router-dom';
 
-const Venue = () => {
-  const tablesTop = {
-    'Table-1': ['Sennen', 'Cherry', 'CJ', 'Jojie', 'Chona'],
-    'Table-2': ['Ally', 'Bert', 'Yasser', 'Anna', 'Chuck', 'Steph']
-  };
-  const tablesBottom = {
-    'Table-3': ['Vai', 'Jamie', 'Kernce', 'Guizelle', 'Raffy'],
-    'Table-4': ['Xinrong', 'Derrick', 'Sivam', 'Archie']
-  };
+export const tablesTop = {
+  'Table-1': ['Sennen', 'Cherry', 'CJ', 'Jojie', 'Chona'],
+  'Table-2': ['Ally', 'Bert', 'Yasser', 'Anna', 'Chuck', 'Steph']
+};
+export const tablesBottom = {
+  'Table-3': ['Vai', 'Jamie', 'Kernce', 'Guizelle', 'Raffy'],
+  'Table-4': ['Xinrong', 'Derrick', 'Sivam', 'Archie']
+};
 
+const Venue = () => {
   const useQuery = () => {
     return new URLSearchParams(useLocation().search);
   };
@@ -22,6 +22,7 @@ const Venue = () => {
 
   return (
     <div className="venue-container">
+      <h1 className="venue-title">Wedding Venue Seating Arrangement</h1>
       <div className="venue">
         {/* Bride & Groom Square */}
         <div className="bride-groom">

@@ -1,13 +1,17 @@
-import Venue from './components/Venue'
-import './App.css'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Venue from './components/Venue';
+import GuestNameInput from './components/GuestNameInput';
+import './App.css';
 
 function App() {
   return (
-    <div className="app">
-      <h1>ROM Seating Arrangement</h1>
-      <Venue />
-    </div>
-  )
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<GuestNameInput />} />
+        <Route path="/venue" element={<Venue />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;

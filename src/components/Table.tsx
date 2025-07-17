@@ -13,7 +13,7 @@ const Table: React.FC<TableProps> = ({ position, guests, qrName, showQr }) => {
   const shouldGrayOut = qrName && !guests.includes(qrName);
   const tableClass = shouldGrayOut ? `table ${position} grayed-out` : `table ${position}`;
 
-  const downloadQRCode = (e:  React.MouseEvent<HTMLButtonElement, MouseEvent>, guest: string) => {
+  const downloadQRCode = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>, guest: string) => {
     e.stopPropagation();
     const svg = e.currentTarget.parentElement?.querySelector('svg');
     if (svg) {
@@ -24,11 +24,20 @@ const Table: React.FC<TableProps> = ({ position, guests, qrName, showQr }) => {
 
       img.onload = () => {
         canvas.width = img.width;
-        canvas.height = img.height;
+        canvas.height = img.height + 30; // Extra space for text
         ctx?.drawImage(img, 0, 0);
+
+        // Add guest name text
+        if (ctx) {
+          ctx.fillStyle = '#000';
+          ctx.font = 'bold 14px Arial';
+          ctx.textAlign = 'center';
+          ctx.fillText(guest, canvas.width / 2, canvas.height - 10);
+        }
+
         const pngFile = canvas.toDataURL('image/png');
         const downloadLink = document.createElement('a');
-        downloadLink.download = `${guest}-Seat-QR.png`;
+        downloadLink.download = `${guest}-qr-code.png`;
         downloadLink.href = pngFile;
         downloadLink.click();
       };
@@ -43,7 +52,8 @@ const Table: React.FC<TableProps> = ({ position, guests, qrName, showQr }) => {
         {guests.map((guest, index) => (
           <div key={index} className={
             qrName && guest === qrName ? 'guest highlighted' :
-              shouldGrayOut ? 'guest grayed-out' : 'guest'
+            qrName && guests.includes(qrName) ? 'guest disabled' :
+            shouldGrayOut ? 'guest grayed-out' : 'guest'
           }>
             {guest}
             {showQr && (
