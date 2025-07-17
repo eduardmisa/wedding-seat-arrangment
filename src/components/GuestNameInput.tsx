@@ -25,7 +25,10 @@ const GuestNameInput: React.FC = () => {
       <h1>Find your seat</h1>
       <div className="search-container">
         <Select
-          options={filteredGuests.map(g => ({value: g, label: g}))}
+          options={filteredGuests.map(g => ({
+            value: g,
+            label: `${g} 💐 ${Object.keys(guestTables).find(key => guestTables[key as keyof typeof guestTables].includes(g))}`
+          }))}
           onChange={(option) => {
             if (option) {
               setName(option.value);
