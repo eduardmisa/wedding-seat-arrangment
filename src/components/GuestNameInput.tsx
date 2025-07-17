@@ -13,12 +13,6 @@ const GuestNameInput: React.FC = () => {
   // Flatten all guest names for searching
   const allGuests = Object.values(guestTables).flat();
 
-  // Filter guests based on input
-  const filteredGuests = name.trim() 
-    ? allGuests.filter(guest => 
-        guest.toLowerCase().includes(name.toLowerCase()))
-    : allGuests;
-
   return (
     <div className="name-input-container">
       <h1>Seat Finder</h1>
@@ -32,21 +26,24 @@ const GuestNameInput: React.FC = () => {
         />
       </div>
       <div className="guest-list">
-        {filteredGuests.length > 0 ? (
-          <div className="guest-suggestions">
-            {filteredGuests.map((guest) => (
+        <div className="guest-suggestions">
+          {allGuests.map((guest) => {
+            const isMatch = name.trim() === '' || 
+              guest.toLowerCase().includes(name.toLowerCase());
+            return (
               <button
                 key={guest}
-                className="guest-button"
+                className={`guest-button ${isMatch ? '' : 'disabled'} ${
+                  name.trim() !== '' && isMatch ? 'active-match' : ''
+                }`}
                 onClick={() => navigate(`/venue?qrName=${encodeURIComponent(guest)}`)}
+                disabled={!isMatch}
               >
                 {guest}
               </button>
-            ))}
-          </div>
-        ) : (
-          <p className="no-results">No matching guests found</p>
-        )}
+            );
+          })}
+        </div>
       </div>
     </div>
   );

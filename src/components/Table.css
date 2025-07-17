@@ -74,12 +74,6 @@
   background-color: rgba(224, 224, 224, 0.8);
 }
 
-.guest.disabled {
-  color: #bbb;
-  background-color: rgba(240, 240, 240, 0.8);
-  pointer-events: none;
-}
-
 .guest.highlighted {
   color: #fff;
   background-color: #d4af37;
@@ -87,6 +81,7 @@
   box-shadow: 0 0 8px rgba(212, 175, 55, 0.8);
   font-size: large;
   z-index: 999999;
+  border: 2px solid #f7e7b3;
 }
 
 .qr-popup {

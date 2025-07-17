@@ -36,7 +36,8 @@
   display: flex;
   width: 150px;
   height: 80px;
-  background-color: #d4af37;
+  background-color: transparent;
+  border: 3px dashed #d4af37;
   border-radius: 4px;
   margin-top: 2rem;
   margin-bottom: 2rem;
@@ -45,7 +46,7 @@
 .couple-label {
   margin: auto;
   font-weight: bold;
-  color: #333;
+  color: #53573d;
 }
 
 /* Table positions */

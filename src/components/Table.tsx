@@ -52,7 +52,7 @@ const Table: React.FC<TableProps> = ({ position, guests, qrName, showQr }) => {
         {guests.map((guest, index) => (
           <div key={index} className={
             qrName && guest === qrName ? 'guest highlighted' :
-            qrName && guests.includes(qrName) ? 'guest disabled' :
+            qrName && guests.includes(qrName) ? 'guest grayed-out' :
             shouldGrayOut ? 'guest grayed-out' : 'guest'
           }>
             {guest}
