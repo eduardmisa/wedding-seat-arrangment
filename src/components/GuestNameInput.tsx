@@ -15,7 +15,7 @@ const GuestNameInput: React.FC = () => {
 
   return (
     <div className="name-input-container">
-      <h1>Seat Finder</h1>
+      <h1>Find your seat</h1>
       <div className="search-container">
         <input
           type="text"
