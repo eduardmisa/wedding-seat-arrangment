@@ -3,8 +3,8 @@ import './Venue.css';
 import { useLocation } from 'react-router-dom';
 
 export const tablesTop = {
-  'Table-1': ['Sennen', 'Cherry', 'CJ', 'Jojie', 'Chona'],
-  'Table-2': ['Ally', 'Bert', 'Yasser', 'Anna', 'Chuck', 'Steph']
+  'Table-1': ['Sennen', 'Cherry', 'CJ', 'Joje', 'Chona'],
+  'Table-2': ['Alyzza', 'Knorbert', 'Yasser', 'Anna', 'Chuck', 'Steph']
 };
 export const tablesBottom = {
   'Table-3': ['Vai', 'Jamie', 'Kernce', 'Guizelle', 'Raffy'],
