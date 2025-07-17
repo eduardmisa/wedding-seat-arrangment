@@ -1,0 +1,11 @@
+.app {
+  text-align: center;
+  width: 100%;
+}
+
+.app h1 {
+  font-family: 'Georgia', serif;
+  font-size: 1.7rem;
+  color: #d4af37;
+  width: 100%;
+}
