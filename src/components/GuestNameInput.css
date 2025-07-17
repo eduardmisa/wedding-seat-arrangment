@@ -8,7 +8,6 @@
   text-align: center;
   background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
   color: #333; /* Base text color */
-  width: 1;
 }
 
 .name-input-container h1 {
@@ -20,6 +19,7 @@
 }
 
 .search-container {
+  position: relative;
   width: 100%;
   max-width: 500px;
   margin-bottom: 30px;
@@ -37,6 +37,40 @@
   border-color: #d4af37;
   outline: none;
   box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+}
+
+.react-select-container {
+  width: 100%;
+}
+
+.react-select__control {
+  border: 2px solid #e0e0e0 !important;
+  border-radius: 6px !important;
+  min-height: 50px !important;
+  transition: all 0.3s !important;
+}
+
+.react-select__control:hover {
+  border-color: #d4af37 !important;
+}
+
+.react-select__menu {
+  border: 1px solid #d4af37 !important;
+  border-radius: 6px !important;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1) !important;
+}
+
+.react-select__option--is-focused {
+  background-color: #f8f4e5 !important;
+}
+
+.react-select__option--is-selected {
+  background-color: #d4af37 !important;
+  color: white !important;
+}
+
+.react-select__placeholder {
+  color: #999 !important;
 }
 
 .guest-list {

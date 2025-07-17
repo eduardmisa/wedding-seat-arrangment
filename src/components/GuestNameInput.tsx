@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Select from 'react-select';
 import './GuestNameInput.css';
 import { tablesBottom, tablesTop } from './Venue';
 
@@ -13,16 +14,30 @@ const GuestNameInput: React.FC = () => {
   // Flatten all guest names for searching
   const allGuests = Object.values(guestTables).flat();
 
+  // Filter guests based on input
+  const filteredGuests = name.trim() 
+    ? allGuests.filter(guest => 
+        guest.toLowerCase().includes(name.toLowerCase()))
+    : allGuests;
+
   return (
     <div className="name-input-container">
       <h1>Find your seat</h1>
       <div className="search-container">
-        <input
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
+        <Select
+          options={filteredGuests.map(g => ({value: g, label: g}))}
+          onChange={(option) => {
+            if (option) {
+              setName(option.value);
+              navigate(`/venue?qrName=${encodeURIComponent(option.value)}`);
+            }
+          }}
+          onInputChange={(input) => setName(input)}
+          inputValue={name}
           placeholder="Search for your name..."
-          className="search-input"
+          isSearchable={true}
+          className="react-select-container"
+          classNamePrefix="react-select"
         />
       </div>
       <div className="guest-list">
